@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS pay_gw;
+USE pay_gw;
+
+-- Fix all non-root users to allow connections from any host
+UPDATE mysql.user SET host='%' WHERE user!='root';
+FLUSH PRIVILEGES;
+
+
+-- Give the user access to the database
+-- DROP USER IF EXISTS 'db_user'@'%';
+-- CREATE USER 'db_user'@'%' IDENTIFIED WITH mysql_native_password BY 'db_password';
+-- GRANT ALL PRIVILEGES ON *.* TO 'db_user'@'%' WITH GRANT OPTION;
+-- FLUSH PRIVILEGES;
+
+-- Transactions table will be created by SQLAlchemy
